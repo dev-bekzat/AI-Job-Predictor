@@ -71,13 +71,6 @@ Skill-Based Job Role Predictor/
 ├── README.md
 ```
 
----
-
-## Demo Video
-
-*Вставь ссылку на видео*
-
----
 
 ## Instructions to Run
 
