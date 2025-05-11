@@ -15,7 +15,7 @@ This project aims to predict a relevant **job role** based on a given list of **
 ## Dataset
 
 - **Primary Dataset**:  
-  Kaggle – Job Descriptions Dataset (~300,000 rows)  
+  Kaggle – Job Descriptions Dataset (~30,000 rows)  
   Columns used: `skills`, `Job Title`
 
 - **Custom Data (Required +10%)**:  
