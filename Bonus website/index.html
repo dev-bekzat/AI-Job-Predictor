@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Skill-Based Job Role Predictor</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Hero / Intro -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>🔮 Skill-Based Job Role Predictor</h1>
+      <p>AI-приложение, которое анализирует ваши навыки и предсказывает наиболее подходящую профессию.</p>
+      <a href="#about" class="cta-button">Подробнее</a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about" id="about">
+    <div class="glass-box">
+      <h2>📘 О проекте</h2>
+      <p>Этот проект создан в рамках курса по машинному обучению. Его цель — продемонстрировать, как современные технологии могут помочь людям определить свой профессиональный путь на основе их умений и интересов.</p>
+      <br>
+      <p><strong>Как это работает:</strong> Вы вводите список своих навыков (например, "Python, SQL, Excel"), а обученная модель предсказывает, какая профессия наиболее соответствует этим навыкам.</p>
+      <br>
+      <p><strong>Использованные технологии:</strong></p>
+      <ul>
+        <li>✔️ Python (Pandas, scikit-learn)</li>
+        <li>✔️ Flask для backend-сервера</li>
+        <li>✔️ HTML + CSS (глассморфизм) для интерфейса</li>
+        <li>✔️ Модель машинного обучения (Logistic Regression)</li>
+      </ul>
+      <br>
+      <a href="#predictor" class="cta-button">🚀 Перейти к прогнозу</a>
+    </div>
+  </section>
+
+  <!-- Predictor Section -->
+  <section class="predictor" id="predictor">
+    <div class="glass-box">
+      <h2>🧠 Введите свои навыки</h2>
+      <input type="text" id="skillsInput" placeholder="Пример: Python, SQL, TensorFlow">
+      <button onclick="predictRole()">Предсказать профессию</button>
+      <div class="result" id="result"></div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 by Наргизз ✨ | <a href="https://github.com/dev-bekzat/AI-final-project">GitHub</a></p>
+  </footer>
+
+  <script>
+    function predictRole() {
+      const input = document.getElementById("skillsInput").value;
+      fetch("/predict", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ skills: input })
+      })
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById("result").textContent = "🎯 Ваша профессия: " + data.predicted_role;
+      });
+    }
+  </script>
+</body>
+</html>
