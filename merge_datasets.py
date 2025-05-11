@@ -1,7 +1,7 @@
 import pandas as pd
 
 # загруажем эти 2 файла
-main_df = pd.read_csv("job_descriptions.csv")
+main_df = pd.read_csv("filtered_dataset.csv")
 custom_df = pd.read_csv("my_custom_data.csv")
 
 # чистим пустые колонки

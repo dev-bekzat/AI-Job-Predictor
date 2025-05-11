@@ -6,7 +6,7 @@ from sklearn.metrics import classification_report
 import joblib
 
 # здесь мы загружаем данные 
-df = pd.read_csv("combined_datasets.csv")
+df = pd.read_csv("combined_dataset.csv")
 df = df[['Job Title', 'skills']].dropna()
 df = df[df['skills'].str.strip().astype(bool)]
 
