@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,51 +7,99 @@
   <title>Skill-Based Job Role Predictor</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    .wide-box {
+      max-width: 1000px;
+      width: 95%;
+      margin: 40px auto;
+    }
+    .arrow-down {
+      display: block;
+      text-align: center;
+      margin-top: 30px;
+      font-size: 2rem;
+      color: #00fff5;
+      animation: bounce 2s infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(8px); }
+    }
+    .half-box {
+      width: 100%;
+      margin-bottom: 30px;
+    }
+    .half-box img {
+      width: 100%;
+      max-width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(255,255,255,0.1);
+      margin-top: 20px;
+    }
+  </style>
 </head>
 <body>
 
-  <!-- Hero / Intro -->
   <section class="hero">
     <div class="hero-content">
       <h1>🔮 Skill-Based Job Role Predictor</h1>
-      <p>AI-приложение, которое анализирует ваши навыки и предсказывает наиболее подходящую профессию.</p>
-      <a href="#about" class="cta-button">Подробнее</a>
+      <p>An AI-powered tool that analyzes your skills and predicts the most suitable job role for you.</p>
+      <a href="#project" class="cta-button">Learn More</a>
     </div>
   </section>
 
-  <!-- About Section -->
-  <section class="about" id="about">
-    <div class="glass-box">
-      <h2>📘 О проекте</h2>
-      <p>Этот проект создан в рамках курса по машинному обучению. Его цель — продемонстрировать, как современные технологии могут помочь людям определить свой профессиональный путь на основе их умений и интересов.</p>
-      <br>
-      <p><strong>Как это работает:</strong> Вы вводите список своих навыков (например, "Python, SQL, Excel"), а обученная модель предсказывает, какая профессия наиболее соответствует этим навыкам.</p>
-      <br>
-      <p><strong>Использованные технологии:</strong></p>
+  <section class="predictor" id="project">
+    <div class="glass-box wide-box">
+      <h2>📘 Project Overview</h2>
+      <p>This web application was developed as a final project for an Artificial Intelligence course. It shows how machine learning can help users understand their potential career path based on their skills.</p>
+      <p>Simply enter your skills (e.g., "Python, SQL, Excel"), and the AI will predict a suitable job role.</p>
+    </div>
+
+    <div class="glass-box wide-box">
+      <h2>🧪 Dataset & Model</h2>
       <ul>
-        <li>✔️ Python (Pandas, scikit-learn)</li>
-        <li>✔️ Flask для backend-сервера</li>
-        <li>✔️ HTML + CSS (глассморфизм) для интерфейса</li>
-        <li>✔️ Модель машинного обучения (Logistic Regression)</li>
+        <li><strong>Dataset:</strong> Kaggle (≈300K records) + 10 manually added entries</li>
+        <li><strong>Features:</strong> TF-IDF Vectorizer (top 1000 words)</li>
+        <li><strong>Model:</strong> Random Forest Classifier (100 trees)</li>
+        <li><strong>Split:</strong> 80% training / 20% testing</li>
+        <li><strong>Tools:</strong> Python, Pandas, Scikit-learn, Flask</li>
       </ul>
-      <br>
-      <a href="#predictor" class="cta-button">🚀 Перейти к прогнозу</a>
+    </div>
+
+    <div class="glass-box wide-box half-box">
+      <h2>📊 Evaluation & Results</h2>
+      <ul>
+        <li>✔️ Accuracy: <strong>1.00</strong></li>
+        <li>✔️ Precision: <strong>1.00</strong></li>
+        <li>✔️ Recall: <strong>1.00</strong></li>
+        <li>✔️ F1 Score: <strong>1.00</strong></li>
+      </ul>
+      <img src="static/reduced_confusion_matrix.png" alt="Confusion Matrix">
+    </div>
+
+    <div class="glass-box wide-box half-box">
+      <h2>📎 Resources & Downloads</h2>
+      <ul>
+        <li><a href="https://github.com/dev-bekzat/AI-final-project" target="_blank">🔗 GitHub Repository</a></li>
+        <li><a href="static/poster.pdf" target="_blank">📄 Poster (PDF)</a></li>
+        <li><a href="static/Documentation.pdf" target="_blank">📝 Final Report (PDF)</a></li>
+        <!-- <li><em>🎥 Demo Video: Coming soon...</em></li> -->
+      </ul>
+      <a href="#predictor" class="arrow-down">⬇️</a>
     </div>
   </section>
 
-  <!-- Predictor Section -->
   <section class="predictor" id="predictor">
     <div class="glass-box">
-      <h2>🧠 Введите свои навыки</h2>
-      <input type="text" id="skillsInput" placeholder="Пример: Python, SQL, TensorFlow">
-      <button onclick="predictRole()">Предсказать профессию</button>
+      <h2>🧠 Try It Yourself</h2>
+      <input type="text" id="skillsInput" placeholder="Example: Python, SQL, TensorFlow">
+      <button onclick="predictRole()">Predict Job Role</button>
       <div class="result" id="result"></div>
     </div>
   </section>
 
-  <!-- Footer -->
   <footer>
-    <p>© 2025 by Наргизз ✨ | <a href="https://github.com/dev-bekzat/AI-final-project">GitHub</a></p>
+    <p>© 2025 by Nargiza Mukhametrakhimova ✨ | <a href="https://github.com/dev-bekzat/AI-final-project">GitHub</a></p>
   </footer>
 
   <script>
@@ -63,9 +112,10 @@
       })
       .then(response => response.json())
       .then(data => {
-        document.getElementById("result").textContent = "🎯 Ваша профессия: " + data.predicted_role;
+        document.getElementById("result").textContent = "🎯 Your predicted role: " + data.predicted_role;
       });
     }
   </script>
+
 </body>
 </html>
