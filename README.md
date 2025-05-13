@@ -1,9 +1,5 @@
 # Skill-Based Job Role Predictor
 
-**Author**: Nargiza Mukhametrakhimova  
-**Course**: Artificial Intelligence Final Project  
-**Date of Submission**: 12 May 2025
-
 ---
 
 ## Project Overview
