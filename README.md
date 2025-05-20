@@ -6,6 +6,9 @@ This project aims to predict a relevant **job role** based on a given list of **
 ## Preview
 
 ![](images/1.png)
+
+--
+
 ![](images/2.png)
 
 ---
