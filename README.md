@@ -1,6 +1,7 @@
 # Skill-Based Job Role Predictor
 
 This project aims to predict a relevant **job role** based on a given list of **skills**, using supervised Machine Learning techniques
+
 ---
 
 ## Preview
